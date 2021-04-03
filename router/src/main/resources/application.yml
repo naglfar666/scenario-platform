@@ -1,0 +1,5 @@
+kafka:
+  server: "localhost:9092"
+  outTopicName: "TaskExecutor"
+  inTopicName: "router-in-topic"
+  groupId: "routerGroup"
