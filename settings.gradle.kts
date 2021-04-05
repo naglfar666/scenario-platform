@@ -31,5 +31,7 @@ pluginManagement {
 include(
     "builder",
     "router",
-    "model"
+    "model",
+    "task",
+    "config"
 )

@@ -10,13 +10,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.io.File;
 
 @SpringBootApplication
-public class Application implements ApplicationRunner {
+public class BuilderApplication implements ApplicationRunner {
 
     private final ScenarioParser scenarioParser;
 
     private static String scenarioFileLocation;
 
-    public Application(ScenarioParser scenarioParser) {
+    public BuilderApplication(ScenarioParser scenarioParser) {
         this.scenarioParser = scenarioParser;
     }
 
@@ -28,7 +28,7 @@ public class Application implements ApplicationRunner {
 
         scenarioFileLocation = commandLine.getOptionValue("f");
 
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(BuilderApplication.class, args);
     }
 
     @Override

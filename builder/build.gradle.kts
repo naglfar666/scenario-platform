@@ -32,6 +32,12 @@ dependencies {
 
 }
 
+tasks {
+    jar {
+        enabled = true
+    }
+}
+
 application {
     mainClassName = "org.example.builder.Application"
 }

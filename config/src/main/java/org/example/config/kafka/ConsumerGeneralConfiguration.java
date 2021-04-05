@@ -1,4 +1,4 @@
-package org.example.router.configuration.kafka;
+package org.example.config.kafka;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -15,7 +15,7 @@ import java.util.Map;
 
 @Configuration
 @EnableKafka
-public class ConsumerConfiguration {
+public class ConsumerGeneralConfiguration {
 
     @Value("${kafka.server}")
     private String kafkaServer;
@@ -48,4 +48,5 @@ public class ConsumerConfiguration {
         factory.setConsumerFactory(consumerFactory());
         return factory;
     }
+
 }

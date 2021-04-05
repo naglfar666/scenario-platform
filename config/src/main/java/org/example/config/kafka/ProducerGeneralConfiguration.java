@@ -1,4 +1,4 @@
-package org.example.router.configuration.kafka;
+package org.example.config.kafka;
 
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-public class ProducerConfiguration {
+public class ProducerGeneralConfiguration {
 
     @Value("${kafka.server}")
     private String kafkaServer;

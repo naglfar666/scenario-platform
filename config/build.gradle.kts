@@ -6,8 +6,6 @@ val lombokVersion: String by project
 plugins {
     kotlin("jvm")
 
-    kotlin("plugin.spring")
-
     java
     id("io.spring.dependency-management")
     id("org.springframework.boot")
@@ -18,21 +16,20 @@ plugins {
     idea
 }
 
+tasks {
+    jar {
+        enabled = true
+    }
+}
+
 dependencies {
     api("org.springframework.boot:spring-boot-starter")
-    api("org.springframework.boot:spring-boot-starter-web")
     api("org.springframework.kafka:spring-kafka")
-    api("commons-cli:commons-cli:${commonsCliVersion}")
-    api("org.apache.commons:commons-lang3:${commonsLangVersion}")
-    api("com.fasterxml.jackson.core:jackson-databind:${jacksonDatabindVersion}")
-
-    api(project(":model"))
-    api(project(":config"))
 
     compileOnly("org.projectlombok:lombok:${lombokVersion}")
 
 }
 
 application {
-    mainClassName = "org.example.router.RouterApplication"
+    mainClassName = "org.example.config.ConfigApplication"
 }
