@@ -15,12 +15,6 @@ public class TopicGeneralConfiguration {
     @Value("${kafka.server}")
     private String kafkaServer;
 
-    @Value("${kafka.outTopicName}")
-    private String outTopicName;
-
-    @Value("${kafka.inTopicName}")
-    private String inTopicName;
-
     @Bean
     public KafkaAdmin kafkaAdmin() {
         Map<String, Object> configs = new HashMap<>();

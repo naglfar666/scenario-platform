@@ -26,6 +26,7 @@ dependencies {
     api("com.fasterxml.jackson.core:jackson-databind:${jacksonDatabindVersion}")
 
     api(project(":model"))
+    api(project(":config"))
 
     compileOnly("org.projectlombok:lombok:${lombokVersion}")
 
