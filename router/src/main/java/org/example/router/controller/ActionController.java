@@ -77,20 +77,18 @@ public class ActionController {
         for (ScenarioBranch branch : step.getBranches()) {
             ScenarioStep nextStep = scenario.getScenarioSteps().get(branch.getStepId());
 
-            Map<String, MessageStep> steps = new LinkedHashMap<>();
-
-            steps.put(nextStep.getId(), MessageStep.builder()
-                    .name(nextStep.getName())
-                    .requestTimeStart(currentTime)
-                    .build());
-
             Message message = Message.builder()
                     .requestId(requestId)
                     .scenarioId(scenario.getScenarioId())
-                    .incomeData(requestData)
+//                    .incomeData(requestData)
                     .requestTimeStart(currentTime)
-                    .steps(steps)
                     .build();
+
+//            message.getSteps().addLast(MessageStep.builder()
+//                    .id(nextStep.getId())
+//                    .name(nextStep.getName())
+//                    .requestTimeStart(currentTime)
+//                    .build());
 
             messageService.save(message);
 

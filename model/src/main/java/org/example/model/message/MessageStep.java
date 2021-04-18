@@ -14,12 +14,14 @@ import java.util.Map;
 @Builder(toBuilder = true)
 public class MessageStep {
 
+    private String id;
+
     private String name;
 
     private Timestamp requestTimeStart;
 
     private Timestamp requestTimeEnd;
 
-    private Map<String, Object> executionResult;
+    private Map<String, Object> outcome;
 
 }

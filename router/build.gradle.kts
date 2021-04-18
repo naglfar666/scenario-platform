@@ -4,6 +4,7 @@ val jacksonDatabindVersion: String by project
 val lombokVersion: String by project
 val springDataRedisVersion: String by project
 val jedisVersion: String by project
+val jsonPathVersion: String by project
 
 plugins {
     kotlin("jvm")
@@ -29,7 +30,7 @@ dependencies {
     api("com.fasterxml.jackson.core:jackson-databind:${jacksonDatabindVersion}")
     api("org.springframework.data:spring-data-redis:${springDataRedisVersion}")
     api("redis.clients:jedis:${jedisVersion}")
-//    api("org.apache.commons:commons-pool2")
+    api("com.jayway.jsonpath:json-path:${jsonPathVersion}")
 
     api(project(":model"))
     api(project(":config"))
