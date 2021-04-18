@@ -29,6 +29,7 @@ pluginManagement {
 }
 
 include(
+    "common",
     "builder",
     "router",
     "model",

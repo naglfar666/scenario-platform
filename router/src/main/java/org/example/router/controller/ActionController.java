@@ -9,6 +9,7 @@ import org.example.model.scenario.ScenarioStep;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.example.router.service.MessageService;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -35,8 +36,11 @@ public class ActionController {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
 
-    public ActionController(KafkaTemplate<String, String> kafkaTemplate) throws JsonProcessingException {
+    private final MessageService messageService;
+
+    public ActionController(KafkaTemplate<String, String> kafkaTemplate, MessageService messageService) throws JsonProcessingException {
         this.kafkaTemplate = kafkaTemplate;
+        this.messageService = messageService;
         ObjectMapper objectMapper = new ObjectMapper();
 
         Scenario scenario = objectMapper.readValue(data, Scenario.class);
@@ -87,6 +91,8 @@ public class ActionController {
                     .requestTimeStart(currentTime)
                     .steps(steps)
                     .build();
+
+            messageService.save(message);
 
             kafkaTemplate.send(nextStep.getName(), new ObjectMapper().writeValueAsString(message));
         }
